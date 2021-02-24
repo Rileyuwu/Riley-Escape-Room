@@ -1,0 +1,243 @@
+<html>
+<head>
+  
+    <script src="./js/chessboard-0.3.0.js"></script>
+    <link rel="stylesheet" href="css/chessboard-0.3.0.min.css">
+    <link rel="stylesheet2" href="css\Chesspuzzle.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    
+  
+  </head>
+<body>
+  <div id="board1" style="  margin: auto;
+  width: 50%;
+  border: 10px solid rgb(37, 17, 17);
+  padding: 10px;
+  background-color: rgb(43, 23, 23);"></div>
+  <div class="banner-area">
+
+
+
+
+<div class="box">
+    <div class="img">
+        <img src="176px-Chessboard480.svg.png">
+    </div>
+    <div class="content">
+        <h2>CHESS<br><span> Follow the instructions and figure out how to check mate the black king.</span></h2>
+    </div>
+</div>
+   
+<div class="box">
+    <div class="img">
+        <img src="chessboardjs-master\img\chesspieces\wikipedia\wP.png">
+    </div>
+    <div class="content">
+        <h2>White Pawn E4<br><span>Black Pawn E5</span></h2>
+    </div>
+</div>
+
+<div class="box">
+    <div class="img">
+        <img src="chessboardjs-master\img\chesspieces\wikipedia\wB.png">
+    </div>
+    <div class="content">
+        <h2>White Bishop C4<br><span> Black Bishop D6</span></h2>
+    </div>
+</div>
+
+<div class="box">
+    <div class="img">
+        <img src="chessboardjs-master\img\chesspieces\wikipedia\wQ.png">
+    </div>
+    <div class="content">
+        <h2>White Queen F3<br><span> Black Knight C6</span></h2>
+    </div>
+</div>
+
+<div class="container">
+    <button id="btn" class="btn btn1">Submit</button>   
+</div>
+
+
+
+  </body>
+
+<style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900')
+
+    
+    
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    min-height: 100vh;
+    background: #010615
+}
+.box{
+    position: relative;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px;
+    background: #060c21;
+    transition: 0.5s;
+}
+
+.box:hover{
+    width: 400px;
+}
+
+.box .img{
+    position: absolute;
+    top: 0;
+    Left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+}
+.box .img img{
+    max-width: 100%;
+    opacity: 0.1;
+    transition: 0.5s;
+}
+.box:hover .img img{
+    opacity: 1;
+}
+.box::before{
+    content: '';
+    position: absolute;
+    top: -2px;
+    Left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -1;
+}
+.box::after{
+    content: '';
+    position: absolute;
+    top: -2px;
+    Left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: #fff;
+    z-index: -1;
+    filter:blur(40px);
+}
+.box:before, .box:after{
+    background: linear-gradient(235deg,#89ff00,#010615, #00bcd4);
+}
+.box:nth-child(2):before, .box:nth-child(2):after {
+    background: linear-gradient(235deg,#ff005e,#010615,#fbff00);
+}
+.box:nth-child(3):before, .box:nth-child(3):after {
+    background: linear-gradient(235deg,#772aff,#010615,#2196f3);
+}
+.box .content{
+    position: absolute;
+    bottom: 0;
+    Left: 10px;
+    right: 10px;
+    bottom: 10px;
+    height: 90px;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: 0.5s;
+
+}
+
+.box:hover .content{
+    opacity: 1;
+}
+.box .content h2{
+    font-size: 20px;
+    color:#fff;
+    font-weight: 500;
+    line-height: 20px;
+    letter-spacing: 1px;
+}
+.box .content h2 span{
+    font-size: 14px;
+    color:#fff;
+    font-weight: 200;
+    letter-spacing: 2px;
+}
+
+
+.btn{
+  border: 1px solid #3498db;
+  background: none;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-family: "montserrat";
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.8s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn1{
+  color: linear-gradient(235deg,#772aff,#010615,#2196f3);
+}
+
+.btn1:hover{
+  color: #fff;
+}
+.btn::before{
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 0%;
+  background: linear-gradient(235deg,#772aff,#010615,#2196f3);
+  z-index: -1;
+  transition: 0.8s;
+}
+.btn1::before{
+  top: 0;
+  border-radius: 0 0 50% 50%;
+}
+
+.btn1:hover::before,.btn2:hover::before{
+  height: 180%;
+}
+
+
+
+</style>
+
+
+    
+  <script src="./script.js"></script>
+
+<script>
+    document.getElementById("btn").onclick = function () {
+        const password = "F7";
+
+let submit = prompt("You think you know the solution? Type the answer.");
+if(password === submit) {  
+    window.location.href = "Doodle\index.html"; 
+} 
+
+else {
+    window.location.href = "Chess.html"; 
+}
+    }
+</script>
+</html>
